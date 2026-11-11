@@ -22,6 +22,7 @@ class Solution {
         if(head==null || head.next==null){
             return true;
         }
+        boolean isTrue=true;
         ListNode midNode=middle(head);
         ListNode prev = null;
         ListNode curr=midNode;
@@ -40,9 +41,10 @@ class Solution {
                 right=right.next;
             }
             else{
-                return false;
+                isTrue=false;
+                break;
             }
         }
-        return true;
+        return isTrue;
     }
 }
