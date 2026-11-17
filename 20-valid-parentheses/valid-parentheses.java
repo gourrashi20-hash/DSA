@@ -1,6 +1,6 @@
 class Solution {
     public boolean isValid(String s) {
-        boolean isTrue=true;
+      
         Stack<Character> sh=new Stack<>();
       for(int i=0;i<s.length();i++){
         char c=s.charAt(i);
@@ -8,8 +8,7 @@ class Solution {
             sh.push(c);
         }else{
             if(sh.isEmpty()){
-                isTrue=false;
-                break;
+            return false;
             }
           if((sh.peek() == '(' && c == ')') ||
                    (sh.peek() == '[' && c == ']') ||
@@ -17,14 +16,10 @@ class Solution {
                     sh.pop();
                 } 
             else{
-                isTrue=false;
-                break;
+                return false;
             }
         }
       }
-      if(!sh.isEmpty()){
-        isTrue=false;
-      }  
-      return isTrue;
+    return sh.isEmpty();
     }
 }
